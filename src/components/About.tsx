@@ -108,7 +108,7 @@ export function About() {
         <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => (
             <Reveal key={feature.title} delay={i * 0.08} className="h-full">
-              <article className="card-soft h-full p-6">
+              <article className="card-soft h-full min-h-56 p-6">
                 <span className="grid size-12 place-items-center rounded-xl bg-primary text-primary-foreground">
                   <feature.icon className="size-6" aria-hidden="true" />
                 </span>

@@ -47,7 +47,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-accent/60 lg:row-start-1 lg:col-start-3">
+        <div className="self-start overflow-hidden rounded-[16px] border border-accent/60 lg:row-start-1 lg:col-start-3">
           <iframe
             title="Unify Overseas office location at 105 Super Market, Pehowa, Haryana"
             src="https://www.google.com/maps?q=105%20Super%20Market%2C%20Pehowa%2C%20Haryana&output=embed"
