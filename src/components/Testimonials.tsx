@@ -75,7 +75,7 @@ export function Testimonials() {
   const active = testimonials[index]!;
 
   return (
-    <section id="testimonials" className="py-24 sm:py-28">
+    <section id="testimonials" className="pt-24 pb-4 sm:pt-28 sm:pb-6">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">

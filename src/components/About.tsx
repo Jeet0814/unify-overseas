@@ -1,4 +1,4 @@
-import { Award, FileCheck2, GraduationCap, HeartHandshake, Plane, Users } from "lucide-react";
+import { Award, BriefcaseBusiness, FileCheck2, GraduationCap, HeartHandshake, Plane, Users } from "lucide-react";
 
 import { Reveal } from "./Reveal";
 import aboutImage from "@/assets/about.jpg";
@@ -28,6 +28,11 @@ const features = [
     icon: Plane,
     title: "Pre-Departure Support",
     body: "Forex, accommodation, travel and airport briefings so your first week abroad feels easy.",
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: "Career & Job Support",
+    body: "Resume building, part-time work guidance and post-study work visa advice to launch your career abroad.",
   },
 ];
 
@@ -102,7 +107,7 @@ export function About() {
 
         <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => (
-            <Reveal key={feature.title} delay={i * 0.08}>
+            <Reveal key={feature.title} delay={i * 0.08} className="h-full">
               <article className="card-soft h-full p-6">
                 <span className="grid size-12 place-items-center rounded-xl bg-primary text-primary-foreground">
                   <feature.icon className="size-6" aria-hidden="true" />

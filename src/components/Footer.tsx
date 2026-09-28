@@ -20,8 +20,8 @@ const socials = [
 export function Footer() {
   return (
     <footer className="surface-navy border-t-2 border-accent">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-4 lg:px-8">
-        <div className="lg:col-span-2 lg:max-w-sm">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)_300px] lg:px-8">
+        <div className="lg:row-start-1 lg:col-start-1 lg:max-w-sm">
           <div className="flex items-center gap-3">
             <Logo size={48} />
             <span className="font-display text-lg font-bold text-primary-foreground">
@@ -47,7 +47,17 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="overflow-hidden rounded-2xl border border-accent/60 lg:row-start-1 lg:col-start-3">
+          <iframe
+            title="Unify Overseas office location at 105 Super Market, Pehowa, Haryana"
+            src="https://www.google.com/maps?q=105%20Super%20Market%2C%20Pehowa%2C%20Haryana&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="block h-[200px] w-full border-0"
+          />
+        </div>
+
+        <div className="lg:row-start-1 lg:col-start-2">
           <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
             Quick Links
           </h3>
@@ -65,7 +75,7 @@ export function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div className="lg:row-start-1 lg:col-start-2 lg:mt-44">
           <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
             Get in Touch
           </h3>

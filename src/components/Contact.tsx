@@ -6,13 +6,14 @@ import { Reveal } from "./Reveal";
 import { Button } from "@/components/ui/button";
 
 const countries = [
+  "UK",
   "Canada",
+  "USA",
   "Australia",
-  "United Kingdom",
-  "United States",
   "Germany",
-  "New Zealand",
   "Ireland",
+  "New Zealand",
+  "Dubai/UAE",
   "Other",
 ];
 
@@ -67,7 +68,7 @@ export function Contact() {
   const [sent, setSent] = useState(false);
 
   return (
-    <section id="contact" className="bg-secondary/40 py-24 sm:py-28">
+    <section id="contact" className="bg-secondary/40 pt-5 pb-24 sm:pt-8 sm:pb-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">
@@ -102,7 +103,7 @@ export function Contact() {
                     defaultValue=""
                     className="h-14 w-full appearance-none rounded-xl border border-input bg-card px-4 pt-5 text-sm transition-all outline-none focus:border-accent focus:ring-4 focus:ring-accent/15"
                   >
-                    <option value="" disabled />
+                    <option value="" disabled>Select country</option>
                     {countries.map((c) => (
                       <option key={c} value={c}>
                         {c}
@@ -178,17 +179,6 @@ export function Contact() {
               </Reveal>
             ))}
 
-            <Reveal delay={0.3} x={24} y={0}>
-              <div className="overflow-hidden rounded-2xl border border-border shadow-soft">
-                <iframe
-                  title="Unify Overseas office location in Pehowa"
-                  src="https://www.google.com/maps?q=Super%20Market%2C%20Pehowa%2C%20Haryana&output=embed"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="h-64 w-full border-0"
-                />
-              </div>
-            </Reveal>
           </div>
         </div>
       </div>
