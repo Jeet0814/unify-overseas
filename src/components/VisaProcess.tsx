@@ -53,18 +53,18 @@ export function VisaProcess() {
   const lineScale = useSpring(scrollYProgress, { stiffness: 120, damping: 28, restDelta: 0.001 });
 
   return (
-    <section id="process" className="surface-navy relative overflow-hidden py-24 sm:py-28">
+    <section id="process" className="surface-navy relative overflow-hidden py-14 lg:py-20">
       <div
         className="pointer-events-none absolute top-1/3 -left-24 size-96 rounded-full bg-accent/10 blur-[120px]"
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="site-container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">
             Visa Process
           </p>
-          <h2 className="mt-4 text-3xl font-bold text-primary-foreground sm:text-4xl">
+          <h2 className="mt-4 text-3xl font-bold text-primary-foreground sm:text-4xl lg:text-[40px]">
             Six clear steps from first call to boarding pass
           </h2>
           <p className="mt-4 text-primary-foreground/70">
@@ -72,13 +72,13 @@ export function VisaProcess() {
           </p>
         </Reveal>
 
-        <div ref={ref} className="relative mt-16">
+        <div ref={ref} className="relative mt-12">
           <div
-            className="absolute top-0 left-6 h-full w-px bg-primary-foreground/15 lg:left-1/2"
+            className="absolute top-0 left-6 h-full w-px -translate-x-1/2 bg-primary-foreground/15 lg:left-1/2"
             aria-hidden="true"
           />
           <motion.div
-            className="absolute top-0 left-6 h-full w-px origin-top bg-accent lg:left-1/2"
+            className="absolute top-0 left-6 h-full w-px origin-top -translate-x-1/2 bg-accent lg:left-1/2"
             style={{ scaleY: lineScale }}
             aria-hidden="true"
           />
@@ -88,7 +88,7 @@ export function VisaProcess() {
               const right = i % 2 === 1;
               return (
                 <li key={step.title} className="relative pl-16 lg:pl-0">
-                  <Reveal x={right ? 48 : -48} y={0}>
+                    <Reveal x={right ? 48 : -48} y={0}>
                     <div
                       className={
                         right

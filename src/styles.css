@@ -185,6 +185,17 @@
   color: var(--color-primary-foreground);
 }
 
+@utility site-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 24px;
+
+  @media (min-width: 1024px) {
+    padding-inline: 64px;
+  }
+}
+
 @utility text-gradient-gold {
   background-image: var(--gradient-gold);
   background-clip: text;
