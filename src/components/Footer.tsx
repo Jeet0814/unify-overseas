@@ -20,7 +20,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="surface-navy border-t-2 border-accent">
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)_300px] lg:px-8">
+      <div className="site-container grid gap-10 py-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)_minmax(0,300px)] lg:items-start lg:py-20">
         <div className="lg:row-start-1 lg:col-start-1 lg:max-w-sm">
           <div className="flex items-center gap-3">
             <Logo size={48} />
@@ -98,7 +98,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-primary-foreground/10">
-        <p className="mx-auto max-w-7xl px-4 py-6 text-center text-xs text-primary-foreground/60 sm:px-6 lg:px-8">
+        <p className="site-container py-6 text-center text-xs text-primary-foreground/60">
           © 2026 Unify Overseas. All rights reserved.
         </p>
       </div>

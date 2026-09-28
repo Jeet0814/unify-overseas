@@ -75,25 +75,25 @@ export function Testimonials() {
   const active = testimonials[index]!;
 
   return (
-    <section id="testimonials" className="pt-24 pb-4 sm:pt-28 sm:pb-6">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="pt-14 pb-6 lg:pt-20 lg:pb-8">
+      <div className="site-container">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">
             Testimonials
           </p>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">Students who are already there</h2>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl lg:text-[40px]">Students who are already there</h2>
         </Reveal>
 
         <Reveal
           delay={0.1}
-          className="relative mt-12"
+          className="relative mx-auto mt-10 max-w-3xl"
         >
           <div
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
             onFocusCapture={() => setPaused(true)}
             onBlurCapture={() => setPaused(false)}
-            className="card-soft relative overflow-hidden p-8 sm:p-12"
+            className="card-soft relative flex min-h-80 flex-col justify-center overflow-hidden p-8 sm:p-12"
           >
             <Quote
               className="absolute -top-2 right-6 size-24 text-accent/12"
@@ -166,10 +166,10 @@ export function Testimonials() {
                   aria-label={`Show testimonial from ${t.name}`}
                   aria-current={i === index}
                   className={cn(
-                    "h-2 rounded-full transition-all",
-                    i === index ? "w-7 bg-accent" : "w-2 bg-border hover:bg-muted-foreground/50",
+                    "grid size-11 place-items-center rounded-full transition-colors",
+                    i === index ? "text-accent" : "text-border hover:text-muted-foreground",
                   )}
-                />
+                ><span className={cn("block h-2 rounded-full bg-current", i === index ? "w-7" : "w-2")} /></button>
               ))}
             </div>
 
