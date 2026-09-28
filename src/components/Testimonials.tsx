@@ -87,7 +87,6 @@ export function Testimonials() {
         <Reveal
           delay={0.1}
           className="relative mt-12"
-          // pause handlers live on the inner div
         >
           <div
             onMouseEnter={() => setPaused(true)}
