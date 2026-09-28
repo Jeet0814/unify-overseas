@@ -1,0 +1,4 @@
+- [ ] Normalize site containers, section spacing, and typography.
+- [ ] Align navbar, hero, About cards, and visa timeline.
+- [ ] Align testimonials, contact form/info, footer, floating actions, and login pages.
+- [ ] Check all pages at 360, 768, 1024, and 1440px and fix any layout issues.
