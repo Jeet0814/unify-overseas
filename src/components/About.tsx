@@ -38,9 +38,9 @@ const features = [
 
 export function About() {
   return (
-    <section id="about" className="relative py-24 sm:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-14 lg:grid-cols-2 lg:items-center lg:gap-20">
+    <section id="about" className="relative py-14 lg:py-20">
+      <div className="site-container">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           <Reveal x={-30} y={0} className="relative">
             <div className="relative overflow-hidden rounded-[2rem] shadow-lift">
               <img
@@ -57,7 +57,7 @@ export function About() {
               />
             </div>
 
-            <div className="glass-panel absolute -right-2 bottom-6 flex items-center gap-3 rounded-2xl p-4 shadow-lift sm:-right-8">
+            <div className="glass-panel absolute right-2 bottom-6 flex items-center gap-3 rounded-2xl p-4 shadow-lift sm:right-4">
               <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-accent text-accent-foreground">
                 <HeartHandshake className="size-6" aria-hidden="true" />
               </span>
@@ -75,7 +75,7 @@ export function About() {
               <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">
                 About Unify Overseas
               </p>
-              <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+              <h2 className="mt-4 text-3xl font-bold sm:text-4xl lg:text-[40px]">
                 Guidance that treats your ambition like our own
               </h2>
               <p className="mt-5 leading-relaxed text-muted-foreground">
@@ -105,10 +105,10 @@ export function About() {
           </div>
         </div>
 
-        <div className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => (
             <Reveal key={feature.title} delay={i * 0.08} className="h-full">
-              <article className="card-soft h-full min-h-56 p-6">
+              <article className="card-soft h-full min-h-56 p-6 lg:min-h-64">
                 <span className="grid size-12 place-items-center rounded-xl bg-primary text-primary-foreground">
                   <feature.icon className="size-6" aria-hidden="true" />
                 </span>

@@ -63,12 +63,12 @@ export function Navbar() {
       )}
     >
       <nav
-        className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8"
+        className="site-container flex min-h-18 items-center gap-4 py-3"
         aria-label="Main navigation"
       >
         <button
           onClick={() => go("home")}
-          className="flex min-w-0 shrink-0 items-center gap-3 rounded-xl focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          className="flex min-h-11 min-w-11 shrink-0 items-center gap-3 rounded-xl focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
           <Logo size={42} />
           <span className="hidden min-w-0 flex-col text-left sm:flex">
@@ -92,7 +92,7 @@ export function Navbar() {
               <button
                 onClick={() => go(link.id)}
                 className={cn(
-                  "relative rounded-full px-4 py-2 text-sm font-medium transition-colors",
+                  "relative min-h-11 rounded-full px-3 py-2 text-sm font-medium transition-colors",
                   scrolled
                     ? "text-muted-foreground hover:text-foreground"
                     : "text-primary-foreground/75 hover:text-primary-foreground",
@@ -113,7 +113,7 @@ export function Navbar() {
         </ul>
 
         <div
-          className="relative ml-auto hidden lg:ml-2 lg:block"
+          className="relative ml-auto hidden shrink-0 lg:ml-2 lg:block"
           onMouseLeave={() => setLoginOpen(false)}
         >
           <Button
@@ -123,7 +123,7 @@ export function Navbar() {
             aria-expanded={loginOpen}
             aria-haspopup="menu"
             className={cn(
-              "rounded-full",
+              "min-h-11 rounded-full",
               !scrolled &&
                 "border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground",
             )}
@@ -143,12 +143,12 @@ export function Navbar() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: 6, scale: 0.98 }}
                 transition={{ duration: 0.2, ease: "easeOut" }}
-                className="glass-panel absolute right-0 mt-2 w-60 overflow-hidden rounded-2xl p-2 shadow-lg"
+                className="glass-panel absolute right-0 mt-2 w-60 max-w-[calc(100vw-48px)] overflow-hidden rounded-2xl p-2 shadow-lg"
               >
                 <Link
                   to="/student-login"
                   role="menuitem"
-                  className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
+                  className="flex min-h-11 items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
                 >
                   <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground">
                     <GraduationCap className="size-4" aria-hidden="true" />
@@ -158,7 +158,7 @@ export function Navbar() {
                 <Link
                   to="/agent-login"
                   role="menuitem"
-                  className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
+                  className="flex min-h-11 items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-secondary"
                 >
                   <span className="grid size-9 shrink-0 place-items-center rounded-lg bg-accent text-accent-foreground">
                     <Briefcase className="size-4" aria-hidden="true" />
@@ -212,7 +212,7 @@ export function Navbar() {
                 <button
                   onClick={() => setDrawerOpen(false)}
                   aria-label="Close menu"
-                  className="grid size-10 shrink-0 place-items-center rounded-xl bg-secondary"
+                  className="grid size-11 shrink-0 place-items-center rounded-xl bg-secondary"
                 >
                   <X className="size-5" aria-hidden="true" />
                 </button>

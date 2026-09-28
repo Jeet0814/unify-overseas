@@ -101,13 +101,13 @@ export function LoginLayout({
       </div>
 
       {/* form side */}
-      <div className="flex items-center justify-center px-5 py-12 sm:px-10">
+      <div className="flex items-center justify-center px-6 py-14 lg:px-12 lg:py-20">
         <div className="w-full max-w-md">
           <div className="flex items-center justify-between gap-4 lg:hidden">
             <Logo size={40} />
             <Link
               to="/"
-              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+              className="inline-flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
             >
               <ArrowLeft className="size-4" aria-hidden="true" />
               Home
@@ -118,7 +118,7 @@ export function LoginLayout({
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 lg:mt-0"
+            className="card-soft mt-8 p-6 sm:p-8 lg:mt-0"
           >
             <span
               className={cn(
@@ -176,7 +176,7 @@ export function LoginLayout({
                   type="button"
                   onClick={() => setShowPassword((v) => !v)}
                   aria-label={showPassword ? "Hide password" : "Show password"}
-                  className="absolute top-1/2 right-3 -translate-y-1/2 rounded-lg p-2 text-muted-foreground transition-colors hover:text-foreground"
+                  className="absolute top-1/2 right-1 grid size-11 -translate-y-1/2 place-items-center rounded-lg text-muted-foreground transition-colors hover:text-foreground"
                 >
                   {showPassword ? (
                     <EyeOff className="size-4" aria-hidden="true" />

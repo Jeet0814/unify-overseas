@@ -14,3 +14,4 @@
 - Scroll-reveal and count-up animations go through `src/components/Reveal.tsx` (`Reveal`, `Counter`) so reduced-motion handling stays in one place.
 - Brand colors, gradients, shadows and glass effects are tokens/utilities in `src/styles.css`; components never hardcode colors.
 - Extra button looks (`gold`, `onNavy`) are variants in `src/components/ui/button.tsx`, not per-usage className overrides.
+- Shared page alignment uses the `site-container` utility in `src/styles.css`; this keeps every section on the same 1200px width and responsive side gutters.
