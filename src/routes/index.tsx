@@ -1,24 +1,51 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { About } from "@/components/About";
+import { Contact } from "@/components/Contact";
+import { FloatingActions } from "@/components/FloatingActions";
+import { Footer } from "@/components/Footer";
+import { Hero } from "@/components/Hero";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { Navbar } from "@/components/Navbar";
+import { Testimonials } from "@/components/Testimonials";
+import { VisaProcess } from "@/components/VisaProcess";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Unify Overseas | Study Abroad & Visa Consultancy" },
+      {
+        name: "description",
+        content:
+          "Unify Overseas is an overseas education and visa consultancy in Pehowa — expert guidance for university admissions, student visas and overseas careers.",
+      },
+      { property: "og:title", content: "Unify Overseas | Study Abroad & Visa Consultancy" },
+      {
+        property: "og:description",
+        content:
+          "Expert guidance for admissions, visas and overseas careers. 500+ students placed across 10+ countries with a 98% visa success rate.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <LoadingScreen />
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <VisaProcess />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+      <FloatingActions />
+    </>
   );
 }
