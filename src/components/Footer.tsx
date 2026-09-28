@@ -57,42 +57,43 @@ export function Footer() {
           />
         </div>
 
-        <div className="lg:row-start-1 lg:col-start-2">
-          <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
-            Quick Links
-          </h3>
-          <ul className="mt-5 space-y-3">
-            {quickLinks.map((link) => (
-              <li key={link.id}>
-                <a
-                  href={`#${link.id}`}
-                  className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
-                >
-                  {link.label}
-                </a>
+        <div className="space-y-10 lg:row-start-1 lg:col-start-2">
+          <div>
+            <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
+              Quick Links
+            </h3>
+            <ul className="mt-5 space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.id}>
+                  <a
+                    href={`#${link.id}`}
+                    className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
+              Get in Touch
+            </h3>
+            <ul className="mt-5 space-y-4 text-sm text-primary-foreground/70">
+              <li className="flex gap-3">
+                <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+                <span>105 Super Market, Pehowa, Haryana 136128</span>
               </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="lg:row-start-1 lg:col-start-2 lg:mt-44">
-          <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
-            Get in Touch
-          </h3>
-          <ul className="mt-5 space-y-4 text-sm text-primary-foreground/70">
-            <li className="flex gap-3">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-              <span>105 Super Market, Pehowa, Haryana 136128</span>
-            </li>
-            <li className="flex gap-3">
-              <Phone className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-              <span>+91 98000 00000</span>
-            </li>
-            <li className="flex gap-3">
-              <Mail className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-              <span>hello@unifyoverseas.com</span>
-            </li>
-          </ul>
+              <li className="flex gap-3">
+                <Phone className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+                <span>+91 98000 00000</span>
+              </li>
+              <li className="flex gap-3">
+                <Mail className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+                <span>hello@unifyoverseas.com</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
 
