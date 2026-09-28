@@ -98,7 +98,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-primary-foreground/10">
-        <p className="site-container py-6 text-center text-xs text-primary-foreground/60">
+        <p className="site-container pt-6 pb-24 text-center text-xs text-primary-foreground/60 sm:pb-6">
           © 2026 Unify Overseas. All rights reserved.
         </p>
       </div>

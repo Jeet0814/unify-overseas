@@ -68,7 +68,7 @@ export function Navbar() {
       >
         <button
           onClick={() => go("home")}
-          className="flex min-h-11 min-w-0 shrink-0 items-center gap-3 rounded-xl focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          className="flex min-h-11 min-w-11 shrink-0 items-center gap-3 rounded-xl focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
           <Logo size={42} />
           <span className="hidden min-w-0 flex-col text-left sm:flex">

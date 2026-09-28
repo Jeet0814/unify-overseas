@@ -149,16 +149,16 @@ export function Testimonials() {
             </AnimatePresence>
           </div>
 
-           <div className="mx-auto mt-8 flex max-w-md items-center justify-center gap-1 sm:gap-4">
+          <div className="relative left-1/2 mt-8 flex w-[calc(100vw-8px)] max-w-md -translate-x-1/2 items-center justify-center gap-0 sm:gap-4">
             <button
               onClick={prev}
               aria-label="Previous testimonial"
-               className="grid size-11 shrink-0 place-items-center rounded-full border border-border bg-card transition-colors hover:border-accent hover:text-accent"
+              className="grid size-11 shrink-0 place-items-center rounded-full border border-border bg-card transition-colors hover:border-accent hover:text-accent"
             >
               <ChevronLeft className="size-5" aria-hidden="true" />
             </button>
 
-             <div className="flex min-w-0 flex-1 items-center justify-between gap-0 sm:gap-2">
+            <div className="flex min-w-0 flex-1 items-center justify-between gap-0 sm:gap-2">
               {testimonials.map((t, i) => (
                 <button
                   key={t.name}
@@ -166,19 +166,19 @@ export function Testimonials() {
                   aria-label={`Show testimonial from ${t.name}`}
                   aria-current={i === index}
                   className={cn(
-                     "grid h-11 min-w-0 flex-1 place-items-center rounded-full transition-colors sm:size-11 sm:flex-none",
+                    "grid size-11 shrink-0 place-items-center rounded-full transition-colors",
                     i === index ? "text-accent" : "text-border hover:text-muted-foreground",
                   )}
-                 >
-                   <span className={cn("block h-2 max-w-full rounded-full bg-current", i === index ? "w-7" : "w-2")} />
-                 </button>
+                >
+                  <span className={cn("block h-2 rounded-full bg-current", i === index ? "w-7" : "w-2")} />
+                </button>
               ))}
             </div>
 
             <button
               onClick={next}
               aria-label="Next testimonial"
-               className="grid size-11 shrink-0 place-items-center rounded-full border border-border bg-card transition-colors hover:border-accent hover:text-accent"
+              className="grid size-11 shrink-0 place-items-center rounded-full border border-border bg-card transition-colors hover:border-accent hover:text-accent"
             >
               <ChevronRight className="size-5" aria-hidden="true" />
             </button>
