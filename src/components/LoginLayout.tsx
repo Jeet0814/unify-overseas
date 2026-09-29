@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Eye, EyeOff, Globe2, GraduationCap, Plane } from "lucide-react";
 import { useState, type ReactNode } from "react";

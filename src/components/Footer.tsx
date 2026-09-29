@@ -47,39 +47,40 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="self-start overflow-hidden rounded-[16px] border border-accent/60 lg:row-start-1 lg:col-start-3">
-          <iframe
-            title="Unify Overseas office location at 105 Super Market, Pehowa, Haryana"
-            src="https://www.google.com/maps?q=105%20Super%20Market%2C%20Pehowa%2C%20Haryana&output=embed"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="block h-[200px] w-full border-0"
-          />
+        <div className="lg:col-start-2">
+          <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
+            Quick Links
+          </h3>
+          <ul className="mt-5 space-y-3">
+            {quickLinks.map((link) => (
+              <li key={link.id}>
+                <a
+                  href={`#${link.id}`}
+                  className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        <div className="space-y-10 lg:row-start-1 lg:col-start-2">
-          <div>
-            <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
-              Quick Links
-            </h3>
-            <ul className="mt-5 space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.id}>
-                  <a
-                    href={`#${link.id}`}
-                    className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+        <div className="space-y-6 lg:col-start-3">
+          <div className="overflow-hidden rounded-[16px] border border-accent/60">
+            <iframe
+              title="Unify Overseas office location at 105 Super Market, Pehowa, Haryana"
+              src="https://www.google.com/maps?q=105%20Super%20Market%2C%20Pehowa%2C%20Haryana&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="block h-[180px] w-full border-0"
+            />
           </div>
+
           <div>
             <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
               Get in Touch
             </h3>
-            <ul className="mt-5 space-y-4 text-sm text-primary-foreground/70">
+            <ul className="mt-4 space-y-3 text-sm text-primary-foreground/70">
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
                 <span>105 Super Market, Pehowa, Haryana 136128</span>

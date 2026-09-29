@@ -89,7 +89,7 @@ export function Contact() {
                 window.setTimeout(() => setSent(false), 4000);
                 (e.currentTarget as HTMLFormElement).reset();
               }}
-              className="card-soft flex h-full flex-col gap-5 p-6 sm:p-8"
+              className="card-soft flex h-full flex-col p-6 sm:p-8"
             >
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field id="name" label="Full Name" />
@@ -119,7 +119,7 @@ export function Contact() {
                 </div>
               </div>
 
-              <div className="relative">
+              <div className="relative mt-5">
                 <textarea
                   id="message"
                   name="message"
@@ -136,27 +136,29 @@ export function Contact() {
                 </label>
               </div>
 
-              <Button type="submit" variant="gold" size="lg" className="rounded-full sm:self-start">
-                {sent ? (
-                  <motion.span
-                    initial={{ scale: 0.7, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    className="inline-flex items-center gap-2"
-                  >
-                    <Check className="size-4" aria-hidden="true" />
-                    Message Sent
-                  </motion.span>
-                ) : (
-                  <span className="inline-flex items-center gap-2">
-                    Send Message
-                    <Send className="size-4" aria-hidden="true" />
-                  </span>
-                )}
-              </Button>
+              <div className="my-auto flex flex-1 flex-col items-center justify-center gap-3 pt-6">
+                <Button type="submit" variant="gold" size="lg" className="min-h-11 w-full rounded-full sm:w-60">
+                  {sent ? (
+                    <motion.span
+                      initial={{ scale: 0.7, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      className="inline-flex items-center gap-2"
+                    >
+                      <Check className="size-4" aria-hidden="true" />
+                      Message Sent
+                    </motion.span>
+                  ) : (
+                    <span className="inline-flex items-center gap-2">
+                      Send Message
+                      <Send className="size-4" aria-hidden="true" />
+                    </span>
+                  )}
+                </Button>
 
-              <p aria-live="polite" className="text-xs text-muted-foreground">
-                {sent ? "Thanks! Our counsellor will reach out within one working day." : null}
-              </p>
+                <p aria-live="polite" className="text-center text-xs text-muted-foreground min-h-[1rem]">
+                  {sent ? "Thanks! Our counsellor will reach out within one working day." : null}
+                </p>
+              </div>
             </form>
           </Reveal>
 

@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Briefcase, ChevronDown, GraduationCap, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -56,9 +56,12 @@ export function Navbar() {
   };
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -32, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        "fixed inset-x-0 top-0 z-50 transition-colors duration-500",
         scrolled ? "glass-panel shadow-soft" : "bg-transparent",
       )}
     >
@@ -254,6 +257,6 @@ export function Navbar() {
           </>
         ) : null}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }

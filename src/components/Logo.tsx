@@ -1,4 +1,4 @@
-import logo from "@/assets/logo.jpg.asset.json";
+import logoImg from "@/assets/logo.jpeg";
 import { cn } from "@/lib/utils";
 
 export function Logo({
@@ -12,7 +12,7 @@ export function Logo({
 }) {
   return (
     <img
-      src={logo.url}
+      src={logoImg}
       alt={label}
       width={size}
       height={size}

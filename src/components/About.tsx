@@ -1,6 +1,6 @@
 import { Award, BriefcaseBusiness, FileCheck2, GraduationCap, HeartHandshake, Plane, Users } from "lucide-react";
 
-import { Reveal } from "./Reveal";
+import { Counter, Reveal } from "./Reveal";
 import aboutImage from "@/assets/about.jpg";
 
 const features = [
@@ -62,9 +62,11 @@ export function About() {
                 <HeartHandshake className="size-6" aria-hidden="true" />
               </span>
               <span className="min-w-0">
-                <span className="font-display block text-lg font-bold">98% Visa Success</span>
+                <span className="font-display block text-lg font-bold">
+                  <Counter to={98} suffix="%" /> Visa Success
+                </span>
                 <span className="block text-xs text-muted-foreground">
-                  Across 10+ study destinations
+                  Across <Counter to={10} suffix="+" /> study destinations
                 </span>
               </span>
             </div>
@@ -105,7 +107,21 @@ export function About() {
           </div>
         </div>
 
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div id="services" className="mt-16 text-center">
+          <Reveal>
+            <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">
+              What We Offer
+            </p>
+            <h2 className="mt-3 text-3xl font-bold sm:text-4xl lg:text-[40px]">
+              Services
+            </h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Comprehensive guidance and support tailored for every stage of your study abroad dream.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => (
             <Reveal key={feature.title} delay={i * 0.08} className="h-full">
               <article className="card-soft h-full min-h-56 p-6 lg:min-h-64">
