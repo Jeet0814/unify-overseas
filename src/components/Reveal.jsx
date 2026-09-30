@@ -56,3 +56,4 @@ export function Counter({ to, suffix = "", duration = 1800 }) {
     </span>
   );
 }
+
