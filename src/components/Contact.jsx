@@ -5,16 +5,30 @@ import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { Button } from "@/components/ui/button";
 
+const services = [
+  "Study Visa / Study Abroad",
+  "Tourist & Holiday Visa",
+  "Visitor & Super Visa (Family/Parents)",
+  "PR & Permanent Residency Visa",
+  "IELTS Coaching (Academic / General)",
+  "PTE Academic & Core Coaching",
+  "Duolingo English Test (DET) Coaching",
+  "Spoken English & Interview Prep",
+  "General Profile Evaluation",
+];
+
 const countries = [
-  "UK",
   "Canada",
-  "USA",
+  "United Kingdom (UK)",
+  "United States (USA)",
   "Australia",
+  "Schengen / Europe",
   "Germany",
-  "Ireland",
   "New Zealand",
-  "Dubai/UAE",
-  "Other",
+  "Ireland",
+  "Dubai / UAE",
+  "Singapore",
+  "Other / Multiple",
 ];
 
 const info = [
@@ -29,7 +43,7 @@ const info = [
   {
     icon: Clock,
     label: "Office Hours",
-    lines: ["Mon – Sat: 10:00 AM – 7:00 PM", "Sunday: By appointment"],
+    lines: ["Mon – Sat: 9:00 AM – 7:00 PM", "Sunday: By appointment"],
   },
 ];
 
@@ -67,11 +81,13 @@ export function Contact() {
       <div className="site-container">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">
-            Contact Us
+            Contact &amp; Free Assessment
           </p>
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl lg:text-[40px]">Book your free consultation</h2>
+          <h2 className="mt-4 text-3xl font-bold sm:text-4xl lg:text-[40px]">
+            Book your free consultation
+          </h2>
           <p className="mt-4 text-muted-foreground">
-            Tell us where you want to study and we will call you back with a realistic plan.
+            Tell us about your visa, study abroad, or language coaching goals and our senior advisor will call you back with a personalized roadmap.
           </p>
         </Reveal>
 
@@ -89,8 +105,34 @@ export function Contact() {
               <div className="grid gap-5 sm:grid-cols-2">
                 <Field id="name" label="Full Name" />
                 <Field id="email" label="Email Address" type="email" />
-                <Field id="phone" label="Phone Number" type="tel" />
+                <Field id="phone" label="Phone Number / WhatsApp" type="tel" />
+
+                {/* Service Dropdown */}
                 <div className="relative">
+                  <select
+                    id="service-select"
+                    name="service"
+                    required
+                    defaultValue=""
+                    className="h-[52px] w-full appearance-none rounded-xl border border-input bg-card px-4 pt-4 text-sm transition-all outline-none focus:border-accent focus:ring-4 focus:ring-accent/15"
+                  >
+                    <option value="" disabled>Select service</option>
+                    {services.map((s) => (
+                      <option key={s} value={s}>
+                        {s}
+                      </option>
+                    ))}
+                  </select>
+                  <label
+                    htmlFor="service-select"
+                    className="pointer-events-none absolute top-1 left-4 text-[0.7rem] text-muted-foreground"
+                  >
+                    Service Interested In
+                  </label>
+                </div>
+
+                {/* Country Dropdown */}
+                <div className="relative sm:col-span-2">
                   <select
                     id="country"
                     name="country"
@@ -98,7 +140,7 @@ export function Contact() {
                     defaultValue=""
                     className="h-[52px] w-full appearance-none rounded-xl border border-input bg-card px-4 pt-4 text-sm transition-all outline-none focus:border-accent focus:ring-4 focus:ring-accent/15"
                   >
-                    <option value="" disabled>Select country</option>
+                    <option value="" disabled>Select target destination / country</option>
                     {countries.map((c) => (
                       <option key={c} value={c}>
                         {c}
@@ -109,7 +151,7 @@ export function Contact() {
                     htmlFor="country"
                     className="pointer-events-none absolute top-1 left-4 text-[0.7rem] text-muted-foreground"
                   >
-                    Country of Interest
+                    Target Country / Destination
                   </label>
                 </div>
               </div>
@@ -118,7 +160,7 @@ export function Contact() {
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
+                  rows={4}
                   required
                   placeholder=" "
                   className="peer w-full resize-none rounded-xl border border-input bg-card px-4 pt-6 pb-3 text-sm transition-all outline-none focus:border-accent focus:ring-4 focus:ring-accent/15"
@@ -127,12 +169,12 @@ export function Contact() {
                   htmlFor="message"
                   className="pointer-events-none absolute top-4 left-4 text-sm text-muted-foreground transition-all peer-focus:top-1.5 peer-focus:text-[0.7rem] peer-focus:text-accent peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-[0.7rem]"
                 >
-                  How can we help?
+                  Tell us about your profile / requirements (e.g. academic marks, visa history, target band)
                 </label>
               </div>
 
               <div className="my-auto flex flex-1 flex-col items-center justify-center gap-3 pt-6">
-                <Button type="submit" variant="gold" size="lg" className="min-h-11 w-full rounded-full sm:w-60">
+                <Button type="submit" variant="gold" size="lg" className="min-h-11 w-full rounded-full sm:w-64">
                   {sent ? (
                     <motion.span
                       initial={{ scale: 0.7, opacity: 0 }}
@@ -140,18 +182,18 @@ export function Contact() {
                       className="inline-flex items-center gap-2"
                     >
                       <Check className="size-4" aria-hidden="true" />
-                      Message Sent
+                      Inquiry Received!
                     </motion.span>
                   ) : (
                     <span className="inline-flex items-center gap-2">
-                      Send Message
+                      Submit Free Inquiry
                       <Send className="size-4" aria-hidden="true" />
                     </span>
                   )}
                 </Button>
 
                 <p aria-live="polite" className="text-center text-xs text-muted-foreground min-h-[1rem]">
-                  {sent ? "Thanks! Our counsellor will reach out within one working day." : null}
+                  {sent ? "Thank you! Our visa & coaching advisor will reach out within one business day." : null}
                 </p>
               </div>
             </form>
@@ -181,4 +223,3 @@ export function Contact() {
     </section>
   );
 }
-

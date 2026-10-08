@@ -7,15 +7,16 @@ import { Button } from "@/components/ui/button";
 
 const headlines = [
   { prefix: "Your Journey to Study", highlight: "Abroad", suffix: "Starts Here" },
-  { prefix: "Your Gateway to Top", highlight: "Universities", suffix: "Starts Here" },
-  { prefix: "Your Global Career &", highlight: "Visa Success", suffix: "Starts Here" },
+  { prefix: "Fast-Track Tourist &", highlight: "Visitor Visas", suffix: "Made Easy" },
+  { prefix: "Settle Globally with", highlight: "PR & Immigration", suffix: "Pathways" },
+  { prefix: "Ace Your Target Band with", highlight: "IELTS & PTE", suffix: "Coaching" },
 ];
 
 const stats = [
-  { value: 500, suffix: "+", label: "Students Placed" },
-  { value: 10, suffix: "+", label: "Countries" },
-  { value: 98, suffix: "%", label: "Visa Success" },
-  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 1000, suffix: "+", label: "Visas Approved" },
+  { value: 98, suffix: "%", label: "Visa Success Rate" },
+  { value: 8, suffix: ".0+", label: "Highest IELTS Band" },
+  { value: 15, suffix: "+", label: "Countries Served" },
 ];
 
 export function Hero() {
@@ -158,7 +159,7 @@ export function Hero() {
             className="glass-dark inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium tracking-[0.16em] text-accent uppercase shadow-soft"
           >
             <Sparkles className="size-3.5" aria-hidden="true" />
-            Overseas Education &amp; Visa Experts
+            Study &bull; Tourist &bull; Visitor &bull; PR &bull; IELTS &amp; PTE Coaching
           </motion.p>
 
           <div className="mt-6 min-h-[105px] sm:min-h-[130px] lg:min-h-[145px] flex items-center justify-center">
@@ -184,9 +185,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/75 sm:text-lg"
+            className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-primary-foreground/75 sm:text-lg"
           >
-            Expert guidance for admissions, visas and overseas careers.
+            One-stop visa consultancy &amp; coaching center for Study Permits, Tourist Visas, Super &amp; Visitor Visas, PR Immigration, and high-band IELTS &amp; PTE preparation.
           </motion.p>
 
           <motion.div
@@ -209,12 +210,22 @@ export function Hero() {
             <Button
               size="lg"
               variant="onNavy"
-              className="min-h-11 w-full rounded-full sm:w-56"
+              className="min-h-11 w-full rounded-full sm:w-52"
               onClick={() =>
-                document.getElementById("process")?.scrollIntoView({ behavior: "smooth" })
+                document.getElementById("visas")?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Explore Visa Process
+              Visa Services
+            </Button>
+            <Button
+              size="lg"
+              variant="onNavy"
+              className="min-h-11 w-full rounded-full sm:w-52"
+              onClick={() =>
+                document.getElementById("coaching")?.scrollIntoView({ behavior: "smooth" })
+              }
+            >
+              IELTS / PTE Coaching
             </Button>
           </motion.div>
         </div>

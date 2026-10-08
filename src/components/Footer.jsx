@@ -1,13 +1,21 @@
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube, GraduationCap, Award, Palmtree, Users2, BookOpen } from "lucide-react";
 
 import { Logo } from "./Logo";
 
-const quickLinks = [
-  { label: "Home", id: "home" },
-  { label: "About Us", id: "about" },
-  { label: "Visa Process", id: "process" },
-  { label: "Testimonials", id: "testimonials" },
-  { label: "Contact Us", id: "contact" },
+const visaLinks = [
+  { label: "Study Visa (Canada, UK, USA)", id: "visas" },
+  { label: "Tourist & Holiday Visa", id: "visas" },
+  { label: "Visitor & Super Visa", id: "visas" },
+  { label: "PR & Permanent Residency", id: "visas" },
+  { label: "Visa Filing Process", id: "process" },
+];
+
+const coachingLinks = [
+  { label: "IELTS Academic & General", id: "coaching" },
+  { label: "PTE Academic & Core", id: "coaching" },
+  { label: "Duolingo English Test (DET)", id: "coaching" },
+  { label: "Spoken English & Fluency", id: "coaching" },
+  { label: "Visa Interview Mock Drills", id: "coaching" },
 ];
 
 const socials = [
@@ -18,19 +26,28 @@ const socials = [
 ];
 
 export function Footer() {
+  const scrollTo = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <footer className="surface-navy border-t-2 border-accent">
-      <div className="site-container grid gap-10 py-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)_minmax(0,300px)] lg:items-start lg:py-20">
-        <div className="lg:row-start-1 lg:col-start-1 lg:max-w-sm">
+      <div className="site-container grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4 lg:items-start lg:py-20">
+        {/* Col 1: Brand */}
+        <div className="lg:max-w-xs">
           <div className="flex items-center gap-3">
-            <Logo size={48} />
-            <span className="font-display text-lg font-bold text-primary-foreground">
-              Unify Overseas
-            </span>
+            <Logo size={46} />
+            <div>
+              <span className="font-display block text-lg font-bold text-primary-foreground leading-none">
+                Unify Overseas
+              </span>
+              <span className="text-[0.65rem] tracking-[0.18em] text-accent uppercase">
+                Immigration &amp; Coaching
+              </span>
+            </div>
           </div>
           <p className="mt-5 text-sm leading-relaxed text-primary-foreground/70">
-            An overseas education and visa consultancy based in Pehowa, guiding students through
-            admissions, visas and life abroad with honest, practical advice.
+            Premier immigration consultancy and language training hub based in Pehowa, guiding aspirants through study permits, tourist visas, PR pathways, and IELTS/PTE preparation with 100% transparency.
           </p>
           <ul className="mt-6 flex gap-3">
             {socials.map((s) => (
@@ -47,63 +64,87 @@ export function Footer() {
           </ul>
         </div>
 
-        <div className="lg:col-start-2">
+        {/* Col 2: Visa Services */}
+        <div>
           <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
-            Quick Links
+            Visa Services
           </h3>
-          <ul className="mt-5 space-y-3">
-            {quickLinks.map((link) => (
-              <li key={link.id}>
-                <a
-                  href={`#${link.id}`}
-                  className="text-sm text-primary-foreground/70 transition-colors hover:text-accent"
+          <ul className="mt-5 space-y-2.5">
+            {visaLinks.map((link, idx) => (
+              <li key={idx}>
+                <button
+                  onClick={() => scrollTo(link.id)}
+                  className="text-left text-sm text-primary-foreground/70 transition-colors hover:text-accent"
                 >
                   {link.label}
-                </a>
+                </button>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="space-y-6 lg:col-start-3">
-          <div className="overflow-hidden rounded-[16px] border border-accent/60">
+        {/* Col 3: Language Coaching */}
+        <div>
+          <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
+            Language Coaching
+          </h3>
+          <ul className="mt-5 space-y-2.5">
+            {coachingLinks.map((link, idx) => (
+              <li key={idx}>
+                <button
+                  onClick={() => scrollTo(link.id)}
+                  className="text-left text-sm text-primary-foreground/70 transition-colors hover:text-accent"
+                >
+                  {link.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Col 4: Location & Contact */}
+        <div className="space-y-5">
+          <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
+            Get in Touch
+          </h3>
+          <div className="overflow-hidden rounded-2xl border border-accent/60 shadow-soft">
             <iframe
               title="Unify Overseas office location at 105 Super Market, Pehowa, Haryana"
               src="https://www.google.com/maps?q=105%20Super%20Market%2C%20Pehowa%2C%20Haryana&output=embed"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="block h-[180px] w-full border-0"
+              className="block h-[140px] w-full border-0"
             />
           </div>
 
-          <div>
-            <h3 className="font-display text-sm font-bold tracking-[0.16em] text-accent uppercase">
-              Get in Touch
-            </h3>
-            <ul className="mt-4 space-y-3 text-sm text-primary-foreground/70">
-              <li className="flex gap-3">
-                <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-                <span>105 Super Market, Pehowa, Haryana 136128</span>
-              </li>
-              <li className="flex gap-3">
-                <Phone className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-                <span>+91 98000 00000</span>
-              </li>
-              <li className="flex gap-3">
-                <Mail className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-                <span>hello@unifyoverseas.com</span>
-              </li>
-            </ul>
-          </div>
+          <ul className="space-y-2.5 text-xs sm:text-sm text-primary-foreground/70">
+            <li className="flex gap-2.5">
+              <MapPin className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+              <span>105 Super Market, Pehowa, Haryana 136128</span>
+            </li>
+            <li className="flex gap-2.5">
+              <Phone className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+              <span>+91 98000 00000</span>
+            </li>
+            <li className="flex gap-2.5">
+              <Mail className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+              <span>hello@unifyoverseas.com</span>
+            </li>
+          </ul>
         </div>
       </div>
 
       <div className="border-t border-primary-foreground/10">
-        <p className="site-container pt-6 pb-24 text-center text-xs text-primary-foreground/60 sm:pb-6">
-          © 2026 Unify Overseas. All rights reserved.
-        </p>
+        <div className="site-container flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 pb-24 sm:pb-6 text-xs text-primary-foreground/60">
+          <p>© 2026 Unify Overseas. All rights reserved.</p>
+          <div className="flex gap-4">
+            <button onClick={() => scrollTo("home")} className="hover:text-accent transition-colors">Home</button>
+            <button onClick={() => scrollTo("visas")} className="hover:text-accent transition-colors">Visas</button>
+            <button onClick={() => scrollTo("coaching")} className="hover:text-accent transition-colors">IELTS/PTE</button>
+            <button onClick={() => scrollTo("contact")} className="hover:text-accent transition-colors">Contact</button>
+          </div>
+        </div>
       </div>
     </footer>
   );
 }
-

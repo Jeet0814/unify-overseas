@@ -4,7 +4,7 @@ import {
   FileStack,
   MessagesSquare,
   PlaneTakeoff,
-  School,
+  Compass,
   Stamp,
 } from "lucide-react";
 import { useRef } from "react";
@@ -14,33 +14,33 @@ import { Reveal } from "./Reveal";
 const steps = [
   {
     icon: MessagesSquare,
-    title: "Free Counselling",
-    body: "We understand your academics, budget and career goals before recommending anything.",
+    title: "1. Profile Evaluation & Free Counselling",
+    body: "We assess your academic background, travel history, financial readiness and immigration goals to recommend the highest-success visa pathway.",
   },
   {
-    icon: School,
-    title: "Course & University Selection",
-    body: "A shortlist matched to your profile, with intake dates, fees and scholarship potential.",
+    icon: Compass,
+    title: "2. Country, Course & Category Selection",
+    body: "Shortlisting universities, holiday itineraries, or PR points calculations matched to your exact profile with intake and timeline clarity.",
   },
   {
     icon: ClipboardList,
-    title: "Application & Admission",
-    body: "SOPs, LORs and applications prepared and tracked until your offer letter arrives.",
+    title: "3. Application & Invitation / Offer Letters",
+    body: "Drafting compelling SOPs, cover letters, employer references, and invitation documentation until official university offers or sponsor letters arrive.",
   },
   {
     icon: FileStack,
-    title: "Documentation",
-    body: "Financials, medicals and academic records assembled to each country's exact checklist.",
+    title: "4. Financial & Checklist Verification",
+    body: "Assembling bank statements, tax returns (ITRs), valuation reports, GIC, medical exams and police clearances strictly adhering to embassy rules.",
   },
   {
     icon: Stamp,
-    title: "Visa Filing & Interview Prep",
-    body: "Accurate filing plus mock interviews so you walk in confident and well rehearsed.",
+    title: "5. Visa Filing, Biometrics & Mock Interviews",
+    body: "Accurate online embassy portal submission, appointment booking for VFS/TLS/Consulates, and intensive 1-on-1 mock interview preparation.",
   },
   {
     icon: PlaneTakeoff,
-    title: "Pre-Departure & Travel",
-    body: "Forex, accommodation, packing and arrival guidance for a smooth first week abroad.",
+    title: "6. Visa Approval, Forex & Pre-Departure",
+    body: "Visa stamping celebration, flight booking assistance, foreign exchange cards, accommodation support, and briefing for your smooth departure.",
   },
 ];
 
@@ -53,26 +53,30 @@ export function VisaProcess() {
   const lineScale = useSpring(scrollYProgress, { stiffness: 120, damping: 28, restDelta: 0.001 });
 
   return (
-    <section id="process" className="surface-navy relative overflow-hidden py-14 lg:py-20">
+    <section id="process" className="surface-navy relative overflow-hidden py-16 lg:py-24">
       <div
         className="pointer-events-none absolute top-1/3 -left-24 size-96 rounded-full bg-accent/10 blur-[120px]"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute bottom-1/4 -right-24 size-96 rounded-full bg-navy-soft/50 blur-[120px]"
         aria-hidden="true"
       />
 
       <div className="site-container relative">
         <Reveal className="mx-auto max-w-2xl text-center">
           <p className="text-xs font-semibold tracking-[0.22em] text-accent uppercase">
-            Visa Process
+            Step-by-Step Roadmap
           </p>
           <h2 className="mt-4 text-3xl font-bold text-primary-foreground sm:text-4xl lg:text-[40px]">
-            Six clear steps from first call to boarding pass
+            Six clear steps from first consultation to visa stamp
           </h2>
           <p className="mt-4 text-primary-foreground/70">
-            No jargon, no surprises — you always know exactly what happens next.
+            No guesswork, no hidden steps — transparent and streamlined guidance for Study, Tourist, Visitor, and PR Visas.
           </p>
         </Reveal>
 
-        <div ref={ref} className="relative mt-12">
+        <div ref={ref} className="relative mt-14">
           <div
             className="absolute top-0 left-6 h-full w-px -translate-x-1/2 bg-primary-foreground/15 lg:left-1/2"
             aria-hidden="true"
@@ -96,7 +100,7 @@ export function VisaProcess() {
                           : "lg:mr-auto lg:w-[calc(50%-3rem)] lg:text-right"
                       }
                     >
-                      <div className="glass-dark rounded-2xl p-6 transition-colors hover:border-accent/50">
+                      <div className="glass-dark rounded-2xl p-6 sm:p-7 transition-colors hover:border-accent/50 shadow-soft">
                         <div
                           className={`flex items-center gap-3 ${right ? "" : "lg:flex-row-reverse"}`}
                         >
@@ -129,4 +133,3 @@ export function VisaProcess() {
     </section>
   );
 }
-

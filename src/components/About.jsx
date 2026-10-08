@@ -1,38 +1,49 @@
-import { Award, BriefcaseBusiness, FileCheck2, GraduationCap, HeartHandshake, Plane, Users } from "lucide-react";
+import {
+  Award,
+  BookOpen,
+  BriefcaseBusiness,
+  FileCheck2,
+  GraduationCap,
+  HeartHandshake,
+  Palmtree,
+  Plane,
+  Users,
+  Users2,
+} from "lucide-react";
 
 import { Counter, Reveal } from "./Reveal";
 import aboutImage from "@/assets/about.jpg";
 
 const features = [
   {
-    icon: Users,
-    title: "Expert Counselling",
-    body: "One-to-one sessions that map your goals, budget and academic profile to the right destination.",
-  },
-  {
     icon: GraduationCap,
-    title: "University Admissions",
-    body: "Shortlisting, applications and offer-letter follow-ups with partner universities worldwide.",
+    title: "Study Visa & Admissions",
+    body: "University shortlisting, SOP & LOR preparation, and complete student visa filing across 15+ countries.",
   },
   {
-    icon: FileCheck2,
-    title: "Visa Assistance",
-    body: "File-building, SOP review and interview preparation handled by experienced visa counsellors.",
+    icon: BookOpen,
+    title: "IELTS & PTE Coaching",
+    body: "Target 7.5+ Band & 70+ PTE coaching with certified trainers, AI computer lab and daily 1-on-1 speaking.",
+  },
+  {
+    icon: Palmtree,
+    title: "Tourist & Holiday Visas",
+    body: "Fast-track holiday visas for UK, USA, Schengen, Canada & Australia with customized day-wise itineraries.",
+  },
+  {
+    icon: Users2,
+    title: "Visitor & Super Visas",
+    body: "Parent & grandparent Super Visas, family visitor visas, sponsorship verification and invitation letter support.",
   },
   {
     icon: Award,
-    title: "Scholarship Guidance",
-    body: "We identify merit and need-based funding so you study abroad without overspending.",
+    title: "PR & Immigration",
+    body: "Canada Express Entry & PNPs, Australia GSM, Points evaluation and credential assessment guidance.",
   },
   {
     icon: Plane,
-    title: "Pre-Departure Support",
-    body: "Forex, accommodation, travel and airport briefings so your first week abroad feels easy.",
-  },
-  {
-    icon: BriefcaseBusiness,
-    title: "Career & Job Support",
-    body: "Resume building, part-time work guidance and post-study work visa advice to launch your career abroad.",
+    title: "Pre-Departure & Forex",
+    body: "Accommodation assistance, forex cards, airport briefings and packing guides for a stress-free departure.",
   },
 ];
 
@@ -81,10 +92,10 @@ export function About() {
                 Guidance that treats your ambition like our own
               </h2>
               <p className="mt-5 leading-relaxed text-muted-foreground">
-                Unify Overseas began in Pehowa with a simple belief: a student&apos;s future should
-                never depend on guesswork. What started as a small counselling desk has grown into a
-                full-service overseas education consultancy, walking families through every step from
-                the first conversation to the airport gate.
+                Unify Overseas began in Pehowa with a simple belief: your international dreams should
+                never depend on guesswork. What started as a dedicated counselling desk has grown into a
+                full-service immigration, study abroad and language coaching institute, walking families
+                and aspirants through every step from test preparation and file building to visa approval.
               </p>
             </Reveal>
 
@@ -92,15 +103,13 @@ export function About() {
               <div className="rounded-2xl border border-border bg-secondary/60 p-5">
                 <h3 className="font-display text-base font-bold">Our Mission</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Make quality international education accessible with honest advice, transparent
-                  costs and zero false promises.
+                  Make global education, travel and settlement accessible with honest advice, high-band language coaching, and transparent visa processing.
                 </p>
               </div>
               <div className="rounded-2xl border border-accent/35 bg-accent/8 p-5">
                 <h3 className="font-display text-base font-bold">Our Vision</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  To be the most trusted study-abroad partner in the region, known for the success of
-                  the students we send out.
+                  To be the most trusted visa consultancy and language training institute, recognized for high visa success rates and top test band scores.
                 </p>
               </div>
             </Reveal>

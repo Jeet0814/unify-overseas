@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useScroll, useSpring } from "framer-motion";
 import { Briefcase, ChevronDown, GraduationCap, Menu, X } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 import { Logo } from "./Logo";
 import { Button } from "@/components/ui/button";
@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { label: "Home", id: "home" },
+  { label: "Visa Services", id: "visas" },
+  { label: "IELTS & PTE", id: "coaching" },
   { label: "About Us", id: "about" },
   { label: "Visa Process", id: "process" },
   { label: "Testimonials", id: "testimonials" },
@@ -20,39 +22,81 @@ export function Navbar() {
   const [active, setActive] = useState("home");
   const [loginOpen, setLoginOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const isClickingRef = useRef(false);
 
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 140, damping: 26, restDelta: 0.001 });
 
+  // Scroll listener for detecting active section and navbar background
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const handleScroll = () => {
+      const scrollPos = window.scrollY;
+      setScrolled(scrollPos > 24);
 
-  useEffect(() => {
-    const sections = links
-      .map((l) => document.getElementById(l.id))
-      .filter(Boolean);
-    if (!sections.length) return;
+      if (isClickingRef.current) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setActive(visible.target.id);
-      },
-      { rootMargin: "-45% 0px -45% 0px", threshold: [0.1, 0.4, 0.7] },
-    );
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+      // Bottom of page -> activate Contact Us
+      const isBottom =
+        window.innerHeight + scrollPos >= document.documentElement.scrollHeight - 80;
+      if (isBottom) {
+        setActive("contact");
+        return;
+      }
+
+      // Top of page -> activate Home
+      if (scrollPos < 100) {
+        setActive("home");
+        return;
+      }
+
+      // Find the currently visible section
+      const triggerPoint = scrollPos + 180;
+      let currentActive = "home";
+
+      for (let i = 0; i < links.length; i++) {
+        const section = document.getElementById(links[i].id);
+        if (section) {
+          const top = section.offsetTop;
+          if (triggerPoint >= top) {
+            currentActive = links[i].id;
+          }
+        }
+      }
+
+      setActive(currentActive);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
   }, []);
 
   const go = (id) => {
+    setActive(id);
     setDrawerOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    isClickingRef.current = true;
+
+    const elem = document.getElementById(id);
+    if (elem) {
+      const headerOffset = 70;
+      const elementPosition = elem.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: "smooth",
+      });
+    }
+
+    // Reset lock after scroll animation finishes
+    setTimeout(() => {
+      isClickingRef.current = false;
+    }, 800);
   };
 
   return (
@@ -66,48 +110,50 @@ export function Navbar() {
       )}
     >
       <nav
-        className="site-container flex min-h-18 items-center gap-4 py-3"
+        className="site-container max-w-7xl flex min-h-18 items-center justify-between gap-2 lg:gap-3 xl:gap-4 py-3"
         aria-label="Main navigation"
       >
         <button
+          type="button"
           onClick={() => go("home")}
-          className="flex min-h-11 min-w-11 shrink-0 items-center gap-3 rounded-xl focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+          className="flex min-h-11 min-w-11 shrink-0 items-center gap-2.5 xl:gap-3 rounded-xl focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
-          <Logo size={42} />
+          <Logo size={40} />
           <span className="hidden min-w-0 flex-col text-left sm:flex">
             <span
               className={cn(
-                "font-display truncate text-base leading-tight font-bold",
+                "font-display truncate text-base leading-tight font-bold whitespace-nowrap",
                 scrolled ? "text-foreground" : "text-primary-foreground",
               )}
             >
               Unify Overseas
             </span>
-            <span className="truncate text-[0.68rem] tracking-[0.18em] text-accent uppercase">
-              Study Abroad
+            <span className="truncate text-[0.65rem] tracking-[0.18em] text-accent uppercase whitespace-nowrap">
+              Immigration &amp; Coaching
             </span>
           </span>
         </button>
 
-        <ul className="ml-auto hidden items-center gap-1 lg:flex">
+        <ul className="ml-auto hidden items-center gap-0.5 xl:gap-1.5 lg:flex">
           {links.map((link) => (
-            <li key={link.id}>
+            <li key={link.id} className="shrink-0">
               <button
+                type="button"
                 onClick={() => go(link.id)}
                 className={cn(
-                  "relative min-h-11 rounded-full px-3 py-2 text-sm font-medium transition-colors",
+                  "relative min-h-11 rounded-full px-2.5 py-2 text-[13px] xl:px-3.5 xl:text-sm font-medium transition-colors whitespace-nowrap",
                   scrolled
                     ? "text-muted-foreground hover:text-foreground"
                     : "text-primary-foreground/75 hover:text-primary-foreground",
-                  active === link.id && (scrolled ? "text-foreground" : "text-primary-foreground"),
+                  active === link.id && (scrolled ? "text-foreground font-semibold" : "text-primary-foreground font-semibold"),
                 )}
               >
-                {link.label}
+                <span className="whitespace-nowrap">{link.label}</span>
                 {active === link.id ? (
                   <motion.span
                     layoutId="nav-active"
-                    className="absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full bg-accent"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    className="absolute inset-x-2.5 xl:inset-x-3.5 -bottom-0.5 h-0.5 rounded-full bg-accent"
+                    transition={{ type: "spring", stiffness: 450, damping: 32 }}
                   />
                 ) : null}
               </button>
@@ -116,7 +162,7 @@ export function Navbar() {
         </ul>
 
         <div
-          className="relative ml-auto hidden shrink-0 lg:ml-2 lg:block"
+          className="relative ml-1 xl:ml-2 hidden shrink-0 lg:block"
           onMouseLeave={() => setLoginOpen(false)}
         >
           <Button
@@ -174,6 +220,7 @@ export function Navbar() {
         </div>
 
         <button
+          type="button"
           onClick={() => setDrawerOpen(true)}
           aria-label="Open menu"
           className={cn(
@@ -213,6 +260,7 @@ export function Navbar() {
               <div className="flex items-center justify-between gap-4">
                 <Logo size={40} />
                 <button
+                  type="button"
                   onClick={() => setDrawerOpen(false)}
                   aria-label="Close menu"
                   className="grid size-11 shrink-0 place-items-center rounded-xl bg-secondary"
@@ -227,13 +275,22 @@ export function Navbar() {
                     key={link.id}
                     initial={{ opacity: 0, x: 24 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.06 * i + 0.1 }}
+                    transition={{ delay: 0.05 * i + 0.08 }}
                   >
                     <button
+                      type="button"
                       onClick={() => go(link.id)}
-                      className="w-full rounded-xl px-3 py-3 text-left font-display text-lg font-semibold transition-colors hover:bg-secondary"
+                      className={cn(
+                        "w-full rounded-xl px-3.5 py-3 text-left font-display text-base font-semibold transition-colors flex items-center justify-between",
+                        active === link.id
+                          ? "bg-accent/15 text-accent font-bold"
+                          : "text-foreground hover:bg-secondary"
+                      )}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
+                      {active === link.id && (
+                        <span className="size-2 rounded-full bg-accent" />
+                      )}
                     </button>
                   </motion.li>
                 ))}
@@ -260,4 +317,3 @@ export function Navbar() {
     </motion.header>
   );
 }
-

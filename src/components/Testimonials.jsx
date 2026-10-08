@@ -9,50 +9,50 @@ const testimonials = [
   {
     name: "Simran Kaur",
     country: "Canada",
-    course: "MSc Data Analytics",
+    course: "Canada Study Permit (MSc Data Analytics)",
     rating: 5,
     quote:
-      "My file had two rejections before I walked into Unify Overseas. They rebuilt it from scratch, prepped me for the interview and my Canada study permit came through in three weeks.",
+      "My file had two previous refusals before I approached Unify Overseas. They restructured my SOP, prepared my financial profile thoroughly, and my Canada study visa got approved in just 22 days!",
   },
   {
-    name: "Rohit Sharma",
+    name: "Gurpreet & Harjit Singh",
+    country: "Canada",
+    course: "Canada Super Visa (Parents)",
+    rating: 5,
+    quote:
+      "We applied for a Canada Super Visa to visit our son in Toronto. The team handled our medical insurance and invitation documents effortlessly. We received our 5-year multi-entry visa without hassle.",
+  },
+  {
+    name: "Rajinder Sharma",
     country: "Australia",
-    course: "MBA, Melbourne",
+    course: "Australia PR (Subclass 190)",
     rating: 5,
     quote:
-      "They never pushed me towards a college that paid them more. The shortlist was honest, the fee breakdown was clear, and I got a partial scholarship I did not know existed.",
+      "The PR points assessment and skill assessment via ACS was crystal clear from day one. Got our Australia permanent residency invitation and grant right on the expected timeline!",
   },
   {
-    name: "Aman Preet",
+    name: "Vikas Dhillon",
     country: "United Kingdom",
-    course: "MSc Cyber Security",
+    course: "UK Tourist & Holiday Visa",
     rating: 5,
     quote:
-      "From SOP drafting to my financial documents, every step was explained in plain language. My parents finally stopped worrying because someone was actually answering their questions.",
+      "Planned a family holiday to London and Scotland. Unify Overseas created our day-wise itinerary, booked our VFS biometric slot, and our UK visitor visas arrived within 10 working days.",
   },
   {
-    name: "Neha Verma",
-    country: "Germany",
-    course: "BSc Mechanical Engineering",
-    rating: 4,
-    quote:
-      "The blocked account and APS process looked impossible online. The team handled the paperwork and I started my semester in Munich without a single delay.",
-  },
-  {
-    name: "Karan Dhillon",
-    country: "New Zealand",
-    course: "PG Diploma in Hospitality",
+    name: "Amanpreet Kaur",
+    country: "IELTS Academic",
+    course: "Overall Band 8.0 (L:8.5, R:8.5, W:7.5, S:7.5)",
     rating: 5,
     quote:
-      "Pre-departure support was the best part — accommodation sorted, forex done, and a call the night before my flight to check I had everything.",
+      "The daily 1-on-1 speaking interview sessions and writing task evaluations gave me enormous confidence. Scored an overall 8.0 band on my first attempt!",
   },
   {
-    name: "Priya Malhotra",
-    country: "United States",
-    course: "MS Computer Science",
+    name: "Mohit Verma",
+    country: "PTE Academic",
+    course: "Score 78 / 90 (CLB 9)",
     rating: 5,
     quote:
-      "Three mock visa interviews meant the real one felt routine. I cannot recommend their counselling team highly enough.",
+      "Their computer lab with Pearson AI mock software and repeat-sentence predictions made the difference. Boosted my score from 58 to 78 in just 4 weeks of targeted training.",
   },
 ];
 
